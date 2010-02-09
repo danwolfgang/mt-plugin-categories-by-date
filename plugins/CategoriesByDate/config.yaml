@@ -1,0 +1,12 @@
+name: 'Categories By Date'
+id: CategoriesByDate
+key: CategoriesByDate
+description: 'Sort categories by the date of the entries they hold.'
+author_name: 'Dan Wolfgang, uiNNOVATIONS'
+author_link: http://uinnovations.com
+version: 1.0
+
+tags:
+    block:
+        CategoriesByDate: $CategoriesByDate::CategoriesByDate::Tags::categories_by_date_block
+
