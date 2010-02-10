@@ -58,7 +58,7 @@ sub categories_by_date_block {
     my @cats = sort { $dated_categories{$b} <=> $dated_categories{$a} } keys %dated_categories;
     
     # If a limit has been specified, cut the array to the argument specified.
-    if ($args->{limit}) {
+    if ($args->{limit} <= scalar @cats) {
         # Subtract 1 from the supplied limit because the array index starts at 0, not 1.
         my $limit = $args->{limit} - 1;
         @cats = @cats[0..$limit];
@@ -108,9 +108,10 @@ sub _category_last_used {
         # And now verify that this entry is actually published.
         if ( $entry->status == MT::Entry::RELEASE() ) {
             #MT->log($category->id.': '.$category->label.' used on '.$entry->modified_on);
-            return $entry->modified_on;
+            return $entry->authored_on;
         }
     }
+    
 }
 
 1;
